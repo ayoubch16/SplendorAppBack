@@ -1,0 +1,26 @@
+id,nom,code_postal,region
+1,Casablanca,20000,Casablanca-Settat
+2,Rabat,10000,Rabat-Salé-Kénitra
+3,Marrakech,40000,Marrakech-Safi
+4,Fès,30000,Fès-Meknès
+5,Tanger,90000,Tanger-Tétouan-Al Hoceima
+6,Meknès,50000,Fès-Meknès
+7,Agadir,80000,Souss-Massa
+8,Oujda,60000,Oriental
+9,Kénitra,14000,Rabat-Salé-Kénitra
+10,Tétouan,93000,Tanger-Tétouan-Al Hoceima
+11,Safi,46000,Marrakech-Safi
+12,Mohammedia,20650,Casablanca-Settat
+13,El Jadida,24000,Casablanca-Settat
+14,Béni Mellal,23000,Béni Mellal-Khénifra
+15,Nador,62000,Oriental
+16,Salé,11000,Rabat-Salé-Kénitra
+17,Laâyoune,70000,Laâyoune-Sakia El Hamra
+18,Taza,35000,Fès-Meknès
+19,Settat,26000,Casablanca-Settat
+20,Larache,92000,Tanger-Tétouan-Al Hoceima
+21,Khémisset,15000,Rabat-Salé-Kénitra
+22,Berrechid,26100,Casablanca-Settat
+23,Guelmim,81000,Guelmim-Oued Noun
+24,Ouarzazate,45000,Drâa-Tafilalet
+25,Dakhla,73000,Dakhla-Oued Ed-Dahab

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.23.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1745266987252-1" author="Dell">
+        <createTable tableName="article">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_article"/>
+            </column>
+            <column name="unite" type="VARCHAR(255)"/>
+            <column name="category_article_id" type="BIGINT"/>
+            <column name="name_article" type="VARCHAR(255)"/>
+            <column name="description_article" type="VARCHAR(255)"/>
+            <column name="price_article" type="DOUBLE"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745266987252-2" author="Dell">
+        <createTable tableName="article_table">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_article_table"/>
+            </column>
+            <column name="designation" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="quantite" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prix_unitaire" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prix_total" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="document_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745266987252-3" author="Dell">
+        <createTable tableName="bl">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_bl"/>
+            </column>
+            <column name="num_bl" type="VARCHAR(255)"/>
+            <column name="client_id" type="BIGINT"/>
+            <column name="statut" type="VARCHAR(255)"/>
+            <column name="date" type="DATE"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745266987252-4" author="Dell">
+        <createTable tableName="category_article">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_category_article"/>
+            </column>
+            <column name="category" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745266987252-5" author="Dell">
+        <createTable tableName="client">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_client"/>
+            </column>
+            <column name="raison_sociale" type="VARCHAR(255)"/>
+            <column name="adresse" type="VARCHAR(255)"/>
+            <column name="ville" type="BIGINT"/>
+            <column name="ice" type="VARCHAR(255)"/>
+            <column name="telephone" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745266987252-6" author="Dell">
+        <createTable tableName="devis">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_devis"/>
+            </column>
+            <column name="num_devis" type="VARCHAR(255)"/>
+            <column name="client_id" type="BIGINT"/>
+            <column name="montant" type="VARCHAR(255)"/>
+            <column name="statut" type="VARCHAR(255)"/>
+            <column name="date" type="DATE"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745266987252-7" author="Dell">
+        <createTable tableName="facture">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_facture"/>
+            </column>
+            <column name="num_facture" type="VARCHAR(255)"/>
+            <column name="client_id" type="BIGINT"/>
+            <column name="montant" type="VARCHAR(255)"/>
+            <column name="statut" type="VARCHAR(255)"/>
+            <column name="date" type="DATE"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745266987252-8" author="Dell">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_users"/>
+            </column>
+            <column name="username" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="is_active" type="BOOLEAN"/>
+            <column name="role" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745266987252-9" author="Dell">
+        <createTable tableName="ville">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_ville"/>
+            </column>
+            <column name="nom" type="VARCHAR(255)"/>
+            <column name="code_postal" type="VARCHAR(255)"/>
+            <column name="region" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1745266987252-10" author="Dell">
+        <addUniqueConstraint columnNames="email" constraintName="uc_users_email" tableName="users"/>
+    </changeSet>
+    <changeSet id="1745266987252-11" author="Dell">
+        <addUniqueConstraint columnNames="username" constraintName="uc_users_username" tableName="users"/>
+    </changeSet>
+    <changeSet id="1745266987252-12" author="Dell">
+        <addForeignKeyConstraint baseColumnNames="category_article_id" baseTableName="article"
+                                 constraintName="FK_ARTICLE_ON_CATEGORY_ARTICLE" referencedColumnNames="id"
+                                 referencedTableName="category_article"/>
+    </changeSet>
+    <changeSet id="1745266987252-13" author="Dell">
+        <addForeignKeyConstraint baseColumnNames="client_id" baseTableName="bl" constraintName="FK_BL_ON_CLIENT"
+                                 referencedColumnNames="id" referencedTableName="client"/>
+    </changeSet>
+    <changeSet id="1745266987252-14" author="Dell">
+        <addForeignKeyConstraint baseColumnNames="ville" baseTableName="client" constraintName="FK_CLIENT_ON_VILLE"
+                                 referencedColumnNames="id" referencedTableName="ville"/>
+    </changeSet>
+    <changeSet id="1745266987252-15" author="Dell">
+        <addForeignKeyConstraint baseColumnNames="client_id" baseTableName="devis" constraintName="FK_DEVIS_ON_CLIENT"
+                                 referencedColumnNames="id" referencedTableName="client"/>
+    </changeSet>
+    <changeSet id="1745266987252-16" author="Dell">
+        <addForeignKeyConstraint baseColumnNames="client_id" baseTableName="facture"
+                                 constraintName="FK_FACTURE_ON_CLIENT" referencedColumnNames="id"
+                                 referencedTableName="client"/>
+    </changeSet>
+</databaseChangeLog>
