@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/splendordb
-    username: root
-    password: 12345678
+   url: jdbc:mysql://89.116.147.85:3306/u111685381_splendorart
+   username: u111685381_sa
+   password: AMARamar1996@
+
   main:
     banner-mode: off
   jpa:
